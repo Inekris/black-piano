@@ -1,0 +1,911 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Black Piano v0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-30 14:56+0100\n"
+"PO-Revision-Date: 2013-05-02 16:37:00+0000\n"
+"Last-Translator: jasper <jasper@planetkips.nl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: archive.php:11
+#, php-format
+#@ black-piano
+msgid "Archive for the &#8216; %s &#8217; Category"
+msgstr "Archief van categorie: &#8216; %s &#8217;"
+
+#: archive.php:14
+#, php-format
+#@ black-piano
+msgid "Posts Tagged &#8216; %s &#8217;"
+msgstr "Blogs met tag &#8216; %s &#8217;"
+
+#: archive.php:17
+#: archive.php:20
+#: archive.php:23
+#, php-format
+#@ black-piano
+msgid "Archive for &#8216; %s &#8217;"
+msgstr "Archief voor: &#8216; %s &#8217;"
+
+#: archive.php:17
+#@ black-piano
+msgid "F jS, Y"
+msgstr "j F Y"
+
+#: archive.php:20
+#@ black-piano
+msgid "F, Y"
+msgstr "F Y"
+
+#: archive.php:23
+#@ black-piano
+msgid "Y"
+msgstr "Y"
+
+#: archive.php:26
+#@ black-piano
+msgid "Author Archive"
+msgstr "Archief op auteur"
+
+#: archive.php:29
+#@ black-piano
+msgid "Blog Archives"
+msgstr "Blog archief"
+
+#: archive.php:39
+#: comments.php:105
+#: functions.php:120
+#: index.php:11
+#: search.php:17
+#: single.php:20
+#@ black-piano
+msgid "M jS. Y"
+msgstr "j M. Y"
+
+#: archive.php:40
+#: index.php:12
+#: search.php:18
+#: single.php:23
+#@ black-piano
+msgid "By "
+msgstr "Door "
+
+#: archive.php:41
+#: comments.php:106
+#: index.php:13
+#: search.php:19
+#: single.php:25
+#@ black-piano
+msgid "[ EDIT ]"
+msgstr "[ BEWERK ]"
+
+#: archive.php:53
+#: functions.php:160
+#: index.php:25
+#: page-nocomment.php:15
+#: page-noside-nocomment.php:15
+#: page-noside.php:15
+#: page.php:18
+#: search.php:23
+#: single.php:29
+#@ black-piano
+msgid "Read more"
+msgstr "Lees meer"
+
+#: archive.php:60
+#: index.php:31
+#: search.php:29
+#: single.php:24
+#@ black-piano
+msgid "Write comment"
+msgstr "Geef reactie"
+
+#: archive.php:60
+#: index.php:31
+#: search.php:29
+#@ black-piano
+msgid "1 comment"
+msgstr "1 reactie"
+
+#: archive.php:60
+#: index.php:31
+#: search.php:29
+#, fuzzy, php-format
+#@ black-piano
+msgid "% comments"
+msgstr "% reacties"
+
+#: archive.php:71
+#: index.php:42
+#: page-nocomment.php:23
+#: page-noside-nocomment.php:23
+#: page-noside.php:23
+#: page.php:27
+#: search.php:40
+#: single.php:65
+#@ black-piano
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Sorry, maar wat jij zoekt is niet aanwezig op deze weblog."
+
+#: 404.php:10
+#: archive.php:77
+#: index.php:49
+#: search.php:46
+#@ black-piano
+msgid "Older posts"
+msgstr "Oudere berichten"
+
+#: 404.php:11
+#: archive.php:78
+#: index.php:58
+#: search.php:47
+#@ black-piano
+msgid "Newer posts"
+msgstr "Recentere berichten"
+
+#: archive.php:90
+#: index.php:56
+#: page.php:43
+#: single.php:85
+#@ black-piano
+msgid "Return top"
+msgstr "Naar boven"
+
+#: functions.php:36
+#@ black-piano
+msgid "Header menu"
+msgstr "Top menu"
+
+#: functions.php:48
+#@ black-piano
+msgid "Side top"
+msgstr "Zijkolom bovenkant"
+
+#: functions.php:56
+#@ black-piano
+msgid "Side middle left"
+msgstr "Zijkolom, links in het midden"
+
+#: functions.php:64
+#@ black-piano
+msgid "Side middle right"
+msgstr "Zijkolom, rechts in het midden"
+
+#: functions.php:72
+#@ black-piano
+msgid "Side bottom"
+msgstr "Zijkolom onderzijde"
+
+#: functions.php:120
+#@ black-piano
+msgid " g:ia"
+msgstr " om H:i"
+
+#: functions.php:127
+#: functions.php:129
+#: functions.php:132
+#@ black-piano
+msgid "REPLY"
+msgstr "Antwoord"
+
+#: functions.php:134
+#@ black-piano
+msgid "QUOTE"
+msgstr "Citeer"
+
+#: functions.php:135
+#@ black-piano
+msgid "EDIT"
+msgstr "Wijzig"
+
+#: functions.php:141
+#@ black-piano
+msgid "Your comment is awaiting moderation."
+msgstr "Jouw reactie wacht op de moderatie."
+
+#: single.php:8
+#@ black-piano
+msgid "HOME"
+msgstr "Home"
+
+#: single.php:21
+#@ black-piano
+msgid "Posted in "
+msgstr "Geblogd in "
+
+#: 404.php:6
+#@ black-piano
+msgid "Error 404 Not Found."
+msgstr "Fout 404; niet gevonden."
+
+#: sidebar.php:33
+#@ black-piano
+msgid "RECENT ENTRY"
+msgstr "Recente berichten"
+
+#: sidebar.php:45
+#@ black-piano
+msgid "CATEGORY"
+msgstr "Categorie"
+
+#: sidebar.php:53
+#@ black-piano
+msgid "ARCHIVES"
+msgstr "Archieven"
+
+#: sidebar.php:63
+#@ black-piano
+msgid "CALENDAR"
+msgstr "Kalender"
+
+#: sidebar.php:72
+#@ black-piano
+msgid "Copyright &copy;&nbsp;"
+msgstr "Alle rechten "
+
+#: sidebar.php:73
+#@ black-piano
+msgid "Theme designed by <a href=\"http://www.mono-lab.net/\" class=\"target_blank\">mono-lab</a>"
+msgstr "Theme gemaakt door <a href=\"http://www.mono-lab.net/\" class=\"target_blank\">mono-lab</a>"
+
+#: sidebar.php:74
+#@ black-piano
+msgid "Powered by <a href=\"http://wordpress.org/\" class=\"target_blank\">WordPress</a>"
+msgstr "Aangedreven door <a href=\"http://wordpress.org/\" class=\"target_blank\">WordPress</a>"
+
+#: comments.php:6
+#: comments.php:12
+#@ black-piano
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Dit bericht is beveiligd. Geef het wachtwoord om de reacties te bekijken."
+
+#: comments.php:30
+#@ black-piano
+msgid "Comment"
+msgstr "Reactie"
+
+#: comments.php:34
+#@ black-piano
+msgid "Trackback"
+msgstr "TrackBack"
+
+#: comments.php:35
+#: comments.php:38
+#@ black-piano
+msgid "Comments"
+msgstr "Reacties"
+
+#: comments.php:37
+#@ black-piano
+msgid "Trackback are closed"
+msgstr "TrackBacks zijn niet meer mogelijk"
+
+#: comments.php:69
+#@ black-piano
+msgid "No comments yet."
+msgstr "Nog geen reacties."
+
+#: comments.php:96
+#@ black-piano
+msgid "TRACKBACK URL"
+msgstr "TrackBack URL"
+
+#: comments.php:109
+#@ black-piano
+msgid "Trackback from : "
+msgstr "TrackBack van: "
+
+#: comments.php:114
+#@ black-piano
+msgid "No trackbacks yet."
+msgstr "Geen TrackBacks."
+
+#: comments.php:133
+#@ black-piano
+msgid "Comment are closed."
+msgstr "Reageren is niet meer mogelijk."
+
+#: comments.php:144
+#, php-format
+#@ black-piano
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Jij moet <a href=\"%s\">aangelogd zijn</a> om een reactie te geven."
+
+#: comments.php:160
+#, php-format
+#@ black-piano
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
+msgstr "Aangelogd als: <a href=\"%1$s\">%2$s</a>."
+
+#: comments.php:160
+#@ black-piano
+msgid "Log out of this account"
+msgstr "Afloggen als deze gebruiker"
+
+#: comments.php:160
+#@ black-piano
+msgid "[ Log out ]"
+msgstr "[ Afloggen ]"
+
+#: comments.php:166
+#@ black-piano
+msgid "NAME"
+msgstr "Naam"
+
+#: comments.php:166
+#: comments.php:167
+#@ black-piano
+msgid "( required )"
+msgstr "( Verplicht )"
+
+#: comments.php:167
+#@ black-piano
+msgid "E-MAIL"
+msgstr "E-mail adres"
+
+#: comments.php:167
+#@ black-piano
+msgid "- will not be published -"
+msgstr "- wordt niet op de weblog getoond -"
+
+#: comments.php:168
+#@ black-piano
+msgid "URL"
+msgstr "URL"
+
+#: comments.php:180
+#@ black-piano
+msgid "Submit Comment"
+msgstr "Verstuur reactie"
+
+#: navigation.php:16
+#@ black-piano
+msgid "PAGE NAVI"
+msgstr "Pagina"
+
+#: navigation.php:23
+#@ black-piano
+msgid "RETURN HOME"
+msgstr "HOME"
+
+#: search.php:8
+#@ black-piano
+msgid "Search results for "
+msgstr "Zoek resulaten voor: "
+
+#: search.php:8
+#@ black-piano
+msgid " hit"
+msgstr " hit"
+
+#: header.php:9
+#, php-format
+#@ black-piano
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: header.php:65
+#: header.php:75
+#@ black-piano
+msgid "SEARCH"
+msgstr "Zoek"
+
+#: header.php:68
+#: header.php:76
+#@ black-piano
+msgid "Search from this blog."
+msgstr "Zoek in dit weblog."
+
+#: header.php:82
+#@ black-piano
+msgid "RSS"
+msgstr "RSS"
+
+#: header.php:85
+#@ black-piano
+msgid "Twitter"
+msgstr "Twitter"
+
+#: header.php:88
+#@ black-piano
+msgid "Facebook"
+msgstr "FaceBook"
+
+#: admin/update_notifier.php:16
+#@ black-piano
+msgid "Theme Update<span class=\"update-plugins count-1\"><span class=\"update-count\">1</span></span>"
+msgstr "Sjabloon update<span class=\"update-plugins count-1\"><span class=\"update-count\">1</span></span>"
+
+#: admin/update_notifier.php:43
+#@ black-piano
+msgid "Theme Update Information"
+msgstr "Sjabloon update informatie"
+
+#: admin/update_notifier.php:45
+#@ black-piano
+msgid "Current theme version is"
+msgstr "Huidige versie van het sjabloon is"
+
+#: admin/update_notifier.php:45
+#@ black-piano
+msgid "Now you can update to"
+msgstr "Nu kan jij updaten naar"
+
+#: admin/update_notifier.php:48
+#@ black-piano
+msgid "Please take backup of your theme before updating to latest version!"
+msgstr "Maak eerst een backup van het sjabloon, voor jij update!"
+
+#: admin/update_notifier.php:49
+#@ black-piano
+msgid "Download latest version"
+msgstr "Download de jongste versie"
+
+#: admin/update_notifier.php:51
+#@ black-piano
+msgid "Changelog"
+msgstr "Wijzigingen"
+
+#: admin/theme-options.php:27
+#@ black-piano
+msgid "INFORMATION"
+msgstr "INFORMATIE"
+
+#: admin/theme-options.php:28
+#@ black-piano
+msgid "Change this sentence and title from admin Theme option page."
+msgstr "Wijzig deze zin en titel op de Sjabloon admin pagina."
+
+#: admin/theme-options.php:76
+#: admin/theme-options.php:125
+#@ black-piano
+msgid "Theme Options"
+msgstr "Sjabloon opties"
+
+#: admin/theme-options.php:89
+#@ black-piano
+msgid "No sidebar"
+msgstr "Geen zijkolom"
+
+#: admin/theme-options.php:94
+#@ black-piano
+msgid "Show sidebar"
+msgstr "Toon zijkolom"
+
+#: admin/theme-options.php:130
+#@ black-piano
+msgid "Updated"
+msgstr "Bijgewerkt"
+
+#: admin/theme-options.php:154
+#@ black-piano
+msgid "Basic Setup"
+msgstr "Basis instelingen"
+
+#: admin/theme-options.php:155
+#@ black-piano
+msgid "Logo"
+msgstr "Logo"
+
+#: admin/theme-options.php:169
+#@ black-piano
+msgid "Display Setup"
+msgstr "Weergave instellingen"
+
+#: admin/theme-options.php:172
+#@ black-piano
+msgid "Display author name"
+msgstr "Toon naam van de auteur"
+
+#: admin/theme-options.php:173
+#@ black-piano
+msgid "Display category"
+msgstr "Toon categorie"
+
+#: admin/theme-options.php:174
+#@ black-piano
+msgid "Display tags"
+msgstr "Toon tags"
+
+#: admin/theme-options.php:175
+#@ black-piano
+msgid "Display date"
+msgstr "Toon datum"
+
+#: admin/theme-options.php:176
+#@ black-piano
+msgid "Display comment"
+msgstr "Toon reacties"
+
+#: admin/theme-options.php:177
+#@ black-piano
+msgid "Display comment time"
+msgstr "Toon tijdstip van reactie"
+
+#: admin/theme-options.php:178
+#@ black-piano
+msgid "Display custom fields"
+msgstr "Toon extra velden"
+
+#: admin/theme-options.php:179
+#@ black-piano
+msgid "Display next previous post link at single page"
+msgstr "Toon links voor vorig en volgend bericht bij het tonen van een enkel bericht"
+
+#: admin/theme-options.php:180
+#@ black-piano
+msgid "Display breadcrumb at single page"
+msgstr "Toon pad bij het tonen van een enkel bericht"
+
+#: admin/theme-options.php:181
+#@ black-piano
+msgid "Display return top link  at bottom of the page"
+msgstr "Toon 'Naar boven' link onder aan de pagina"
+
+#: admin/theme-options.php:182
+#@ black-piano
+msgid "Display search form at header"
+msgstr "Toon zoek formulier boven aan de pagina"
+
+#: admin/theme-options.php:183
+#@ black-piano
+msgid "Display rss at header"
+msgstr "Toon RSS boven aan de pagina"
+
+#: admin/theme-options.php:185
+#@ black-piano
+msgid "Display site description under site title"
+msgstr "Toon weblog beschrijving onder de titel"
+
+#: admin/theme-options.php:193
+#@ black-piano
+msgid "Side information setting"
+msgstr "Instelling voor het informatieblok in de zijkolom"
+
+#: admin/theme-options.php:197
+#@ black-piano
+msgid "Title of information area"
+msgstr "Titel van het informatieblok"
+
+#: admin/theme-options.php:210
+#: admin/theme-options.php:212
+#@ black-piano
+msgid "Layout"
+msgstr "Opmaak"
+
+#: admin/theme-options.php:243
+#@ black-piano
+msgid "twitter and facebook setup"
+msgstr "Twitter en Facebook instellingen"
+
+#: admin/theme-options.php:245
+#@ black-piano
+msgid "When it is blank, twitter and facebook icon will not displayed on a site."
+msgstr "Als dit leeg is, wordt het logo van twitter en/of facebook niet getoond."
+
+#: admin/theme-options.php:248
+#@ black-piano
+msgid "your twitter URL"
+msgstr "Jou Twitter URL"
+
+#: admin/theme-options.php:252
+#@ black-piano
+msgid "your facebook URL"
+msgstr "Jouw facebook URL"
+
+#: admin/theme-options.php:261
+#@ black-piano
+msgid "Using Google custom search"
+msgstr "Het gebruik van Google Aangepast zoeken"
+
+#: admin/theme-options.php:263
+#@ black-piano
+msgid "If you want to use google custom search for your wordpress, enter your google custom search ID.<br /><a href=\"http://www.google.com/cse/\" target=\"_blank\">Read more about Google custom search page.</a>"
+msgstr "Als jij Google Aangepast zoeken wil gebruiken, vul dan jouw Google Aangepast zoeken ID in.<br /><a href=\"http://www.google.com/cse/\" target=\"_blank\">Over Google aangepast zoeken.</a>"
+
+#: admin/theme-options.php:264
+#@ black-piano
+msgid "Google custom search ID"
+msgstr "Google Aangepast zoeken ID"
+
+#: admin/theme-options.php:271
+#@ black-piano
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: admin/theme-options.php:283
+#@ black-piano
+msgid "Step 1 : Upload image to use for logo."
+msgstr "Stap 1: Upload een afbeelding die jij als logo wil gebruiken."
+
+#: admin/theme-options.php:285
+#@ black-piano
+msgid "Upload image to use for logo from your computer.<br />You can resize your logo image in step 2 and adjust position in step 3."
+msgstr "Upload een afbeelding vanaf jouw computer, om te gebruiken als logo.<br />Jij kan de afmetingen van de afbeelding aanpassen in stap 2, en de positie aanpassen in stap 3."
+
+#: admin/theme-options.php:287
+#@ black-piano
+msgid "Select image to use for logo from your computer."
+msgstr "Kies een afbeelding om als logo te gebruiken."
+
+#: admin/theme-options.php:289
+#@ black-piano
+msgid "Upload"
+msgstr "Verstuur"
+
+#: admin/theme-options.php:293
+#@ black-piano
+msgid "Uploaded image."
+msgstr "Verstuurde afbeelding."
+
+#: admin/theme-options.php:297
+#, php-format
+#@ black-piano
+msgid "Original image size : width %1$dpx, height %2$dpx"
+msgstr "Het originele afbeeldingsformaat: breedte %1$dpx, hoogte %2$dpx"
+
+#: admin/theme-options.php:301
+#@ black-piano
+msgid "The image has not been uploaded yet.<br />A normal text will be used for a site logo."
+msgstr "De afbeelding is nog niet verstuurd.<br />Er wordt tekst gebruikt als logo."
+
+#: admin/theme-options.php:310
+#@ black-piano
+msgid "Step 2 : Resize uploaded image."
+msgstr "Step 2: PAs het formaat van de afbeelding aan."
+
+#: admin/theme-options.php:313
+#@ black-piano
+msgid "You can resize uploaded image.<br />If you don't need to resize, go to step 3."
+msgstr "Jij kan het formaat van de afbeelding wijzigen.<br />Als dat niet nodig is, ga jij door met stap 3."
+
+#: admin/theme-options.php:315
+#@ black-piano
+msgid "Please drag the range to cut off."
+msgstr "Sleep de selectie om bij te snijden."
+
+#: admin/theme-options.php:320
+#@ black-piano
+msgid "Ratio"
+msgstr "Verhouding"
+
+#: admin/theme-options.php:321
+#@ black-piano
+msgid "Width"
+msgstr "Breedte"
+
+#: admin/theme-options.php:322
+#@ black-piano
+msgid "Height"
+msgstr "Hoogte"
+
+#: admin/theme-options.php:325
+#@ black-piano
+msgid "Resize"
+msgstr "Pas afmetingen aan"
+
+#: admin/theme-options.php:330
+#, php-format
+#@ black-piano
+msgid "Resized image : width %1$dpx, height %2$dpx"
+msgstr "Bijgewerkte afbeelding: breedte %1$dpx, hoogte %2$dpx"
+
+#: admin/theme-options.php:344
+#@ black-piano
+msgid "Step 3 : Adjust position of logo."
+msgstr "Stap 3: Pas de positie van het logo aan."
+
+#: admin/theme-options.php:347
+#@ black-piano
+msgid "Drag the logo image and adjust the position."
+msgstr "Sleep het logo naar de juiste positie."
+
+#: admin/theme-options.php:351
+#@ black-piano
+msgid "Logo size is too big. Please resize your logo image."
+msgstr "Het logo is te groot, pas de afmetingen aan."
+
+#: admin/theme-options.php:355
+#@ black-piano
+msgid "Top"
+msgstr "Bovenkant"
+
+#: admin/theme-options.php:356
+#@ black-piano
+msgid "Left"
+msgstr "Linkerzijde"
+
+#: admin/theme-options.php:359
+#@ black-piano
+msgid "Save the position"
+msgstr "Bewaar de positie"
+
+#: admin/theme-options.php:368
+#@ black-piano
+msgid "Delete logo image."
+msgstr "Verwijder het logo."
+
+#: admin/theme-options.php:370
+#@ black-piano
+msgid "If you delete the logo image, normal text will be used for a site logo."
+msgstr "Als jij het logo verwijder, wordt er tekst gebruikt voor het logo."
+
+#: admin/theme-options.php:371
+#@ black-piano
+msgid "Are you sure to delete logo image?"
+msgstr "Weet jij zeker dat jij het logo wil verwijderen?"
+
+#: admin/theme-options.php:371
+#@ black-piano
+msgid "Delete Image"
+msgstr "Verwijder logo"
+
+#: functions/header-logo.php:231
+#, php-format
+#@ black-piano
+msgid "Cannot create upload directory. Please make sure <code>%s</code> is writable."
+msgstr "Kan de upload directory niet aan maken. Zorg dat <code>%s</code> beschrijfbaar is."
+
+#: functions/header-logo.php:243
+#, php-format
+#@ black-piano
+msgid "Cannot save uploaded file. Please make sure <code>%s</code> is writable."
+msgstr "Kan de het bestand niet bewaren. Zorg dat <code>%s</code> beschrijfbaar is."
+
+#: functions/header-logo.php:254
+#@ black-piano
+msgid "Uploaded file type is not allowed. Allowed file types are PNG, JPG and GIF."
+msgstr "Het bestandstype is niet toegestaan. Toegestane types zijn: PNG, JPG en GIF."
+
+#: functions/header-logo.php:266
+#, php-format
+#@ black-piano
+msgid "Cannot delete existing file <code>%s</code>"
+msgstr "Kan bestand <code>%s</code> niet verwijderen"
+
+#: functions/header-logo.php:276
+#@ black-piano
+msgid "Sorry, but cannot save uploaded file."
+msgstr "Sorry, ik kan het bestand niet bewaren."
+
+#: functions/header-logo.php:282
+#@ black-piano
+msgid "Logo file was successfully uploaded."
+msgstr "Logo bestand is met succes verstuurd."
+
+#: functions/header-logo.php:326
+#, php-format
+#@ black-piano
+msgid "Failed to delete image. Please check permisson of %s. All files must be writable."
+msgstr "Kon de afbeelding niet verwijderen. Controleer de permissies van %s. Alle bestanden moeten beschrijfbaar zijn."
+
+#: functions/header-logo.php:333
+#@ black-piano
+msgid "Images are successfully deleted."
+msgstr "Afbeeldingen met succes verwijderd."
+
+#: functions/header-logo.php:354
+#: functions/header-logo.php:359
+#@ black-piano
+msgid "Logo file not exists."
+msgstr "Logo afbeelding bestaat niet."
+
+#: functions/header-logo.php:379
+#@ black-piano
+msgid "Cannot delete existing resized logo."
+msgstr "Kan het bestaande, aangenpaste, logo niet verwijderen."
+
+#: functions/header-logo.php:395
+#@ black-piano
+msgid "Logo image is successfully resized."
+msgstr "Logo afbeelding afmetingen aangepast."
+
+#: functions/header-logo.php:397
+#, php-format
+#@ black-piano
+msgid "Failed to save resized logo. Please check permission of <code>%s</code>"
+msgstr "Kan het aangepaste logo niet bewaren. Controleer de permissies van <code>%s</code>"
+
+#: functions/header-logo.php:410
+#@ black-piano
+msgid "Uploaded file size is larger than limit set in php.ini."
+msgstr "Verstuurd bestand is groter van de bestandslimiet zoals ingesteld in php.ini."
+
+#: functions/header-logo.php:413
+#@ black-piano
+msgid "Uploaded file size is larger than post file size."
+msgstr "Verstuurd bestand is groter dan 'POST' bestand grootte."
+
+#: functions/header-logo.php:416
+#@ black-piano
+msgid "The file has been uploaded only partially. Connection error may have occured"
+msgstr "Dit bestand is slechts gedeeltelijk verstuurd. Er kan een fout in de verbinding zijn opgetreden"
+
+#: functions/header-logo.php:419
+#@ black-piano
+msgid "Uploaded file size is too large."
+msgstr "De omvang van het verstuurde bestand is te groot."
+
+#: functions/header-logo.php:422
+#@ black-piano
+msgid "No temporary directory exists. Please check PHP Setting is valid."
+msgstr "Kan geen tijdelijke folder vinden. Controleer of de PHP instelling correct is."
+
+#: functions/header-logo.php:425
+#@ black-piano
+msgid "Failed to write to disk. OS file setting or something is wrong."
+msgstr "Kan niet naar schijf schrijven. OS bestands instellingen, of iets anders, is fout."
+
+#: functions/header-logo.php:428
+#@ black-piano
+msgid "PHP extension module stops uploading. Check PHP setting."
+msgstr "PHP extensie module, is gestopt met versturen. Controleer de PHP instellingen."
+
+#: functions/header-logo.php:431
+#@ black-piano
+msgid "Upload failed. Sorry, but reasons cannot be detected."
+msgstr "Versuren mislukt, maar ik heb geen idee waarom."
+
+#: admin/theme-options.php:198
+#@ black-piano
+msgid "information_title"
+msgstr "information_title"
+
+#: admin/theme-options.php:228
+#@ black-piano
+msgid "value"
+msgstr "value"
+
+#: admin/theme-options.php:249
+#@ black-piano
+msgid "twitter_url"
+msgstr "twitter_url"
+
+#: admin/theme-options.php:253
+#@ black-piano
+msgid "facebook_url"
+msgstr "facebook_url"
+
+#: admin/theme-options.php:265
+#@ black-piano
+msgid "custom_search_id"
+msgstr "custom_search_id"
+
+#: admin/theme-options.php:355
+#@ black-piano
+msgid "logotop"
+msgstr "logotop"
+
+#: admin/theme-options.php:356
+#@ black-piano
+msgid "logoleft"
+msgstr "logoleft"
+
+#: admin/theme-options.php:184
+#@ black-piano
+msgid "Display the automatic excerpt if there is no &lt;!--more--&gt; tag in the post"
+msgstr "Toon het door Wordpress gemaakte uittreksel, als er geen &lt;!--more--&gt; tag in het bericht staat."
+
+#: admin/theme-options.php:186
+#@ black-piano
+msgid "Display the information block below"
+msgstr "Toon het informatie blok, hieronder."
+
+#: admin/theme-options.php:195
+#@ black-piano
+msgid "If this field is blank, the block won't show, even if you chose to show it above"
+msgstr "Als jij dit veld leeg laat, wordt het blok niet getoond, zelfs als jij hier boven hebt aangegeven dat het getoond moet worden."
+
