@@ -13,6 +13,7 @@ $black_piano_default_options = array(
 	'show_category' => 1,
 	'show_tag' => 1,
 	'show_date' => 1,
+	'show_thumb' => 1,
 	'show_comment' => 1,
 	'show_comment_time' => 1,
 	'show_custom_fields' => 1,
@@ -112,7 +113,7 @@ function theme_options_do_page() {
   wp_print_scripts('editor');
   if (function_exists('add_thickbox')) add_thickbox();
   wp_print_scripts('media-upload');
-  if (function_exists('wp_tiny_mce')) wp_tiny_mce();
+ // if (function_exists('wp_editor')) wp_editor();
   wp_admin_css();
   wp_enqueue_script('utils');
   do_action("admin_print_styles-post-php");
@@ -169,6 +170,7 @@ function theme_options_do_page() {
       <li><label><input id="black_piano_options[show_category]" name="black_piano_options[show_category]" type="checkbox" value="1" <?php checked( '1', $options['show_category'] ); ?> /> <?php _e('Display category', 'black-piano');  ?></label></li>
       <li><label><input id="black_piano_options[show_tag]" name="black_piano_options[show_tag]" type="checkbox" value="1" <?php checked( '1', $options['show_tag'] ); ?> /> <?php _e('Display tags', 'black-piano');  ?></label></li>
       <li><label><input id="black_piano_options[show_date]" name="black_piano_options[show_date]" type="checkbox" value="1" <?php checked( '1', $options['show_date'] ); ?> /> <?php _e('Display date', 'black-piano');  ?></label></li>
+      <li><label><input id="black_piano_options[show_post_thumb]" name="black_piano_options[show_thumb]" type="checkbox" value="1" <?php checked( '1', $options['show_thumb'] ); ?> /> <?php _e( 'Display Post Thumbnails', 'black-piano' ); ?></label></li>
       <li><label><input id="black_piano_options[show_comment]" name="black_piano_options[show_comment]" type="checkbox" value="1" <?php checked( '1', $options['show_comment'] ); ?> /> <?php _e('Display comment', 'black-piano');  ?></label></li>
       <li><label><input id="black_piano_options[show_comment_time]" name="black_piano_options[show_comment_time]" type="checkbox" value="1" <?php checked( '1', $options['show_comment_time'] ); ?> /> <?php _e('Display comment time', 'black-piano');  ?></label></li>
       <li><label><input id="black_piano_options[show_custom_fields]"  name="black_piano_options[show_custom_fields]" type="checkbox" value="1" <?php checked('1', $options['show_custom_fields'] );?>  /> <?php _e('Display custom fields','black-piano'); ?></label></li>
@@ -192,11 +194,11 @@ function theme_options_do_page() {
      <p><?php _e('If this field is blank, the block won\'t show, even if you chose to show it above', 'black-piano');  ?></p>
      <div style="margin:0 0 5px 0;">
       <label style="display:inline-block; min-width:140px;"><?php _e('Title of information area', 'black-piano');  ?></label>
-      <input id="black_piano_options[information_title]" class="regular-text" type="text" name="black_piano_options[information_title]" value="<?php esc_attr_e( $options['information_title'], 'black-piano' ); ?>" />
+      <input id="black_piano_options[information_title]" class="regular-text" type="text" name="black_piano_options[information_title]" value="<?php esc_attr( $options['information_title'] ); ?>" />
      </div>
      <div id="poststuff" style="margin:0 0 15px 0;">
       <div id="postdivrich" class="postarea">
-       <?php the_editor(stripslashes( $options['information_contents'] ), $id = 'black_piano_options[information_contents]', $class = 'large-text' ); ?>
+       <?php wp_editor(stripslashes( $options['information_contents'] ), $id = 'black_piano_options[information_contents]', $class = 'large-text' ); ?>
       </div>
      </div>
     </div>
@@ -222,8 +224,8 @@ function theme_options_do_page() {
            }
      ?>
       <label class="description">
-       <input type="radio" name="black_piano_options[layout]" value="<?php esc_attr_e( $option['value'], 'black-piano' ); ?>" <?php echo $checked; ?> />
-       <img src="<?php bloginfo('template_url'); ?>/admin/<?php echo $option['img']; ?>.gif" alt="" title="" />
+       <input type="radio" name="black_piano_options[layout]" value="<?php esc_attr( $option['value'] ); ?>" <?php echo $checked; ?> />
+       <img src="<?php  echo get_template_directory_uri(); ?>/admin/<?php echo $option['img']; ?>.gif" alt="" title="" />
        <?php echo $option['label']; ?>
        </label>
        
@@ -243,11 +245,11 @@ function theme_options_do_page() {
      <ul>
       <li>
        <label style="display:inline-block; min-width:140px;"><?php _e('your twitter URL', 'black-piano');  ?></label>
-       <input id="black_piano_options[twitter_url]" class="regular-text" type="text" name="black_piano_options[twitter_url]" value="<?php esc_attr_e( $options['twitter_url'], 'black-piano' ); ?>" />
+       <input id="black_piano_options[twitter_url]" class="regular-text" type="text" name="black_piano_options[twitter_url]" value="<?php esc_attr( $options['twitter_url'] ); ?>" />
       </li>
       <li>
        <label style="display:inline-block; min-width:140px;"><?php _e('your facebook URL', 'black-piano');  ?></label>
-       <input id="black_piano_options[facebook_url]" class="regular-text" type="text" name="black_piano_options[facebook_url]" value="<?php esc_attr_e( $options['facebook_url'], 'black-piano' ); ?>" />
+       <input id="black_piano_options[facebook_url]" class="regular-text" type="text" name="black_piano_options[facebook_url]" value="<?php esc_attr( $options['facebook_url'] ); ?>" />
       </li>
      </ul>
     </div>
@@ -259,7 +261,7 @@ function theme_options_do_page() {
     <div class="theme_option_input">
      <p><?php _e('If you want to use google custom search for your wordpress, enter your google custom search ID.<br /><a href="http://www.google.com/cse/" target="_blank">Read more about Google custom search page.</a>', 'black-piano');  ?></p>
      <label style="display:inline-block; margin:0 20px 0 0;"><?php _e('Google custom search ID', 'black-piano');  ?></label>
-     <input id="black_piano_options[custom_search_id]" class="regular-text" type="text" name="black_piano_options[custom_search_id]" value="<?php esc_attr_e( $options['custom_search_id'], 'black-piano' ); ?>" />
+     <input id="black_piano_options[custom_search_id]" class="regular-text" type="text" name="black_piano_options[custom_search_id]" value="<?php esc_attr( $options['custom_search_id'] ); ?>" />
     </div>
    </div>
    
@@ -315,6 +317,10 @@ function theme_options_validate( $input ) {
  if ( ! isset( $input['show_date'] ) )
   $input['show_date'] = null;
   $input['show_date'] = ( $input['show_date'] == 1 ? 1 : 0 );
+  
+ if ( ! isset( $input['show_thumb'] ) ) 
+  $input['show_thumb'] = null;
+  $input['show_thumb'] = ( $input['show_thumb'] == 1 ? 1 : 0 );
 
  if ( ! isset( $input['show_bread_crumb'] ) )
   $input['show_bread_crumb'] = null;
@@ -365,6 +371,7 @@ function theme_options_validate( $input ) {
  $input['information_title'] = wp_filter_post_kses( $input['information_title'] );
  $input['information_contents'] = $input['information_contents'];
 /* Removed the dp_logo thingys */
+	
  return $input;
 }
 

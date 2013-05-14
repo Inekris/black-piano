@@ -22,9 +22,9 @@ echo <<<EOS
 EOS;
 }else{
 if ($option['show_site_desc']):
-echo '<h1 class="logo_text"><a href="'.home_url().'/">'.get_bloginfo('name')."</a></h1>\n" . "<h2 id='site_description'>" . get_bloginfo('description') . "</h2>\n";
+echo '<h1 class="logo-text"><a href="'.home_url().'/">'.get_bloginfo('name')."</a></h1>\n" . "<h2 id='site-description'>" . get_bloginfo('description') . "</h2>\n";
 else:
-echo '<h1 class="logo_text no_desc"><a href="'.home_url().'/">'.get_bloginfo('name')."</a></h1>\n";
+echo '<h1 class="logo-text no-desc"><a href="'.home_url().'/">'.get_bloginfo('name')."</a></h1>\n";
 endif;
 }
 }

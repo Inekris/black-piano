@@ -2,10 +2,15 @@
 
 // Changed to load_theme_textdomain 25-04-2013
 
-//function my_theme_setup() {
+function my_theme_setup() {
  load_theme_textdomain('black-piano', get_template_directory().'/languages' );
-// }
-//add_action( 'after_setup_theme', 'my_theme_setup' );*/
+ set_post_thumbnail_size( 32, 32, true );
+ add_theme_support( 'automatic-feed-links' );
+ add_theme_support( 'post-thumbnails' );
+ 
+ }
+add_action( 'after_setup_theme', 'my_theme_setup' );
+
 //load_textdomain('black-piano', dirname(__FILE__).'/languages/' . get_locale() . '.mo');
 
 // テーマオプション
@@ -20,7 +25,7 @@ get_template_part('functions/header-logo');
 add_action('admin_print_styles', 'my_admin_CSS');
 
 function my_admin_CSS() {
- wp_enqueue_style('myAdminCSS', get_bloginfo('stylesheet_directory').'/admin/my_admin.css');
+ wp_enqueue_style('myAdminCSS', get_stylesheet_directory_uri().'/admin/my_admin.css');
 };
 
 
@@ -41,33 +46,33 @@ if(function_exists('register_nav_menu')) {
 // Sidebar widget
 if ( function_exists('register_sidebar') ) {
     register_sidebar(array(
-        'before_widget' => '<div class="side_box %2$s" id="%1$s">'."\n",
+        'before_widget' => '<div class="side-box %2$s" id="%1$s">'."\n",
         'after_widget' => "</div>\n",
-        'before_title' => '<h3 class="side_title">',
+        'before_title' => '<h3 class="side-title">',
         'after_title' => "</h3>\n",
         'name' => __('Side top', 'black-piano'),
         'id' => 'top'
     ));
     register_sidebar(array(
-        'before_widget' => '<div class="side_box_short %2$s" id="%1$s">'."\n",
+        'before_widget' => '<div class="side-box-short %2$s" id="%1$s">'."\n",
         'after_widget' => "</div>\n",
-        'before_title' => '<h3 class="side_title">',
+        'before_title' => '<h3 class="side-title">',
         'after_title' => "</h3>\n",
         'name' => __('Side middle left', 'black-piano'),
         'id' => 'left'
     ));
     register_sidebar(array(
-        'before_widget' => '<div class="side_box_short %2$s" id="%1$s">'."\n",
+        'before_widget' => '<div class="side-box-short %2$s" id="%1$s">'."\n",
         'after_widget' => "</div>\n",
-        'before_title' => '<h3 class="side_title">',
+        'before_title' => '<h3 class="side-title">',
         'after_title' => "</h3>\n",
         'name' => __('Side middle right', 'black-piano'),
         'id' => 'right'
     ));
     register_sidebar(array(
-        'before_widget' => '<div class="side_box %2$s" id="%1$s">'."\n",
+        'before_widget' => '<div class="side-box %2$s" id="%1$s">'."\n",
         'after_widget' => "</div>\n",
-        'before_title' => '<h3 class="side_title">',
+        'before_title' => '<h3 class="side-title">',
         'after_title' => "</h3>\n",
         'name' => __('Side bottom', 'black-piano'),
         'id' => 'bottom'
@@ -136,7 +141,7 @@ function custom_comments($comment, $args, $depth) {
    </ul>
 
   </div>
-  <div class="comment-content post_content" id="comment-content-<?php comment_ID() ?>">
+  <div class="comment-content post-content" id="comment-content-<?php comment_ID() ?>">
   <?php if ($comment->comment_approved == '0') : ?>
    <span class="comment-note"><?php _e('Your comment is awaiting moderation.', 'black-piano'); ?></span>
   <?php endif; ?>
@@ -197,12 +202,14 @@ function ax_first_post_date($format = "Y-m-d") {
 add_filter('body_class', 'bp_body_class');
 function bp_body_class($classes) {
 	$options = get_black_piano_option();
+	$classes = array();
+	$classes[] = 'default';
 	if(is_page_template('page-noside.php')||is_page_template('page-noside-nocomment.php')||$options['layout'] == 'noside') 
-			$classes[] = 'no_side';
+			$classes[] = 'no-side';
 		if (!$options['show_category'] and !$options['show_tag'] and !$options['show_comment']) 
-			$classes[] = 'no_postmeta';
+			$classes[] = 'no-postmeta';
 		if (!$options['show_date'] and !$options['show_author']) 
-			$classes[] = 'no_postinfo' ;
+			$classes[] = 'no-postinfo' ;
 		return $classes;
 	}			
 	
@@ -235,18 +242,18 @@ function bp_comment_form() {
 	get_currentuserinfo();
 	$sets = array(
 		'id_form'				=>	'commentform',
-		'id_submit'				=>	'submit_comment',
+		'id_submit'				=>	'submit-comment',
 		'title_reply'			=>	__( 'Write Comment', 'black-piano' ),
 		'title_reply_to'		=>	__( 'Write a Comment to %s', 'black-piano' ),
 		'cancel_reply_link' 	=>	__( 'Cancel Reply', 'black-piano'  ),
 		'label_submit'			=>	__( 'Submit Comment', 'black-piano' ),
-		'comment_field'			=> '<div id="comment_textarea"><textarea name="comment" id="comment" cols="50" rows="10" tabindex="4" ></textarea></div>',
+		'comment_field'			=> '<div id="comment-textarea"><textarea name="comment" id="comment" cols="50" rows="10" tabindex="4" ></textarea></div>',
 		'must_log_in' 			=>	'',
-		'logged_in_as' 			=> 	'<div id="comment_user_login"><p>' . sprintf(__('Logged in as <a href="%1$s">%2$s</a>.', 'black-piano'), get_site_url() . '/wp-admin/profile.php', $user_identity) . '<span><a href="' .  wp_logout_url(get_permalink()) . '" title="' . __('Log out of this account', 'black-piano') . '">' . __('[ Log out ]', 'black-piano') . '</a></span></p></div><!-- #comment-user-login END -->',
+		'logged_in_as' 			=> 	'<div id="comment-user-login"><p>' . sprintf(__('Logged in as <a href="%1$s">%2$s</a>.', 'black-piano'), get_site_url() . '/wp-admin/profile.php', $user_identity) . '<span><a href="' .  wp_logout_url(get_permalink()) . '" title="' . __('Log out of this account', 'black-piano') . '">' . __('[ Log out ]', 'black-piano') . '</a></span></p></div><!-- #comment-user-login END -->',
 		'comment_notes_before'	=>	'',
 		'comment_notes_after' 	=>	'',
 		'fields' 				=>	apply_filters( 'comment_form_default_fields', array(
-									'author'	=> '<div id="guest_info"><div id="guest_name"><label for="author"><span>' . __('NAME','black-piano') . '</span>' .  ( $req ? __( '( required )', 'black-piano' ) : '' ) . '</label><input type="text" name="author" id="author" value="' . esc_attr( $commenter['comment_author'] ) .'" size="22" tabindex="1"' . $aria_req . ' /></div>',
+									'author'	=> '<div id="guest-info"><div id="guest_name"><label for="author"><span>' . __('NAME','black-piano') . '</span>' .  ( $req ? __( '( required )', 'black-piano' ) : '' ) . '</label><input type="text" name="author" id="author" value="' . esc_attr( $commenter['comment_author'] ) .'" size="22" tabindex="1"' . $aria_req . ' /></div>',
 									'email'		=>	'<div id="guest_email"><label for="email"><span>' . __( 'E-MAIL','black-piano' ) . '</span>' . ( $req ? __( '( required )', 'black-piano' ) : '' ) . ' ' . __( '- will not be published -','black-piano' ) . '</label><input type="text" name="email" id="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="22" tabindex="2"' . $aria_req . ' /></div>',
 									'url'		=>	'<div id="guest_url"><label for="url"><span>' . __( 'URL', 'black-piano' ) . '</span></label><input type="text" name="url" id="url" value="' . esc_attr( $commenter['comment_author_url'] ) . ' size="22" tabindex="3" /></div></div>') )
 				 );

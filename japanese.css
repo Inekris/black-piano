@@ -2,21 +2,21 @@
 
 body { font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック'; }
 
-h1.logo_text { font-size:19px; top:64px; }
-h2#site_description { font-size:10px; }
-h1.no_desc { top:73px; }
+h1.logo-text { font-size:19px; top:64px; }
+h2#site-description { font-size:10px; }
+h1.no-desc { top:73px; }
 
-.header_menu ul { font-size:10px; }
+.header-menu ul { font-size:10px; }
 
-.post_title { font-size:18px; }
+.post-title { font-size:18px; }
 
-.comment_headline { font-size:14px; bottom:-10px; }
+.comment-headline { font-size:14px; bottom:-10px; }
 
-.post_meta ul li { font-size:10px; color:#999; }
-.post_meta ul li.post_category { background:url(img/icon_category.gif) no-repeat left 0px; }
-.post_meta ul li.post_tag { background:url(img/icon_tag.gif) no-repeat left 1px; padding:0 0 1px 18px; }
+.post-meta ul li { font-size:10px; color:#999; }
+.post-meta ul li.post_category { background:url(img/icon_category.gif) no-repeat left 0px; }
+.post-meta ul li.post-tag { background:url(img/icon_tag.gif) no-repeat left 1px; padding:0 0 1px 18px; }
 
-#bread_crumb ul li { font-size:10px; line-height:140%; margin:-7px 0 11px 0; }
-#bread_crumb ul li a { background:url(img/arrow1.gif) no-repeat right 5px; }
+#bread-crumb ul li { font-size:10px; line-height:140%; margin:-7px 0 11px 0; }
+#bread-crumb ul li a { background:url(img/arrow1.gif) no-repeat right 5px; }
 
-#info_box { font-size:10px; }
+#info-box { font-size:10px; }
