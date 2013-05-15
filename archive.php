@@ -22,8 +22,9 @@
   <?php } elseif ( is_year() ) { ?>
   <h3><span><?php printf( __( 'Archive for &#8216; %s &#8217;', 'black-piano' ), get_the_time( __( 'Y', 'black-piano' ) ) ); ?></span></h3>
 
-  <?php } elseif ( is_author() ) { ?>
-  <h3><span><?php _e( 'Author Archive', 'black-piano' ); ?></span></h3>
+  <?php } elseif ( is_author() ) { 
+  	$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author)); ?>
+  <h3><span><?php printf( __( 'Author Archive for &#8216; %s &#8127;', 'black-piano' ), $curauth->display_name ); ?></span></h3>
 
   <?php } elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) { ?>
   <h3><span><?php _e( 'Blog Archives', 'black-piano' ); ?></span></h3>
@@ -43,6 +44,7 @@
   <?php }; ?>
   <div class="post-content cf">
      <?php 
+    if ( has_post_thumbnail() && $options['show_thumb'] ) the_post_thumbnail();
   	$permlink=get_permalink();
   	$bp_id=get_the_id();
   	$cont=get_the_content(); 
@@ -52,7 +54,7 @@
 	else { 
 		the_content( __( 'Read more', 'black-piano' ) ); 
 		 } ?>
-   <?php wp_link_pages(); ?>
+  
   </div>
   <?php if ( $options['show_category'] or $options['show_tag'] or $options['show_comment'] ) { ?>
   <div class="post-meta">
@@ -72,26 +74,26 @@
  </div>
 
  <?php endif; ?>
-
+<?php if ($options['pager'] == 'pager') { ?>
+ <?php include('navigation.php'); ?>
+ <?php } else { ?>
  <div id="prev-next-post" class="cf">
-  <p class="next-post"><?php next_posts_link( __( 'Older posts', 'black-piano' ) ); ?></p>
-  <p class="prev-post"><?php previous_posts_link( __( 'Newer posts', 'black-piano' ) ); ?></p>
-    <?php if ( $options['show_return_top'] ) { ?>
-  <?php if ( get_next_posts_link()  ) { ?>
+  <p class="next-post">
+  <?php next_posts_link( __( 'Older posts', 'black-piano' ) ); ?></p>
+  <?php if ( $options['show_return_top'] ) { ?>
+  <?php if ( get_next_posts_link() ) { ?>
 	 <p class="return-top">
 	 <?php } 
-	 else { 
-	 		if( get_adjacent_post( is_category(), '', false ) ) {
-	 			?> <p class="return-top-empty">
-	 			<?php }
-	 			else { 
-	 				?> <p class="return-top-none">
-	 			<?php } ?>
-	 <?php };?><a href="#header-menu"><?php _e( 'Return top' , 'black-piano' ); ?></a></p>
+	  else {
+	 	?> <p class="return-top-empty">
+	 <?php };?><a href="#header-menu"><?php _e('Return top','black-piano'); ?></a></p>
+ <?php }; ?><p class="prev-post">
+  <?php previous_posts_link( __( 'Newer posts', 'black-piano' ) ); ?></p>
+   
+ 
+ </div><!--id="prev-next-post"-->
  <?php }; ?>
 
- </div>
- <?php//}; ?>
 
 </div><!-- END #left-col -->
 

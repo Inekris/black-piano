@@ -15,7 +15,7 @@
   <?php }; ?>
   <div class="post-content">
   <?php 
-  	//if ( has_post_thumbnail() && $options['show_thumb'] ) the_post_thumbnail();
+  	if ( has_post_thumbnail() && $options['show_thumb'] ) the_post_thumbnail();
   	$permlink=get_permalink();
   	$bp_id=get_the_id();
   	$cont=get_the_content(); 
@@ -44,7 +44,9 @@
  </div>
 
  <?php endif; ?>
-
+<?php if ($options['pager'] == 'pager') { ?>
+ <?php include('navigation.php'); ?>
+ <?php } else { ?>
  <div id="prev-next-post" class="cf">
   <p class="next-post">
   <?php next_posts_link( __( 'Older posts', 'black-piano' ) ); ?></p>
@@ -59,13 +61,13 @@
   <?php previous_posts_link( __( 'Newer posts', 'black-piano' ) ); ?></p>
    
  
- </div>
- <?php //}; ?>
+ </div><!--id="prev-next-post"-->
+ <?php }; ?>
 
 
 </div><!-- END #left-col -->
 
-<?php if($options['layout'] == 'right') { ?>
+<?php if( $options['layout'] == 'right' ) { ?>
 <?php get_sidebar(); ?>
 <?php }; ?>
 

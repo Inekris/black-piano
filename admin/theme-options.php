@@ -27,7 +27,8 @@ $black_piano_default_options = array(
 	'show_information_block' => 1,
         'information_title' => __('INFORMATION', 'black-piano'),
         'information_contents' => __('Change this sentence and title from admin Theme option page.', 'black-piano'),
-	'layout'  => 'right',
+	'layout'  	=> 'right',
+	'pager'		=> 'pager',
 	'twitter_url' => '',
 	'facebook_url' => '',
 	'custom_search_id' => '',
@@ -83,7 +84,7 @@ function theme_options_add_page() {
  */
 
 function layout_options() {
-//global $layout_options;
+global $layout_options;
 $layout_options = array(
  'noside' => array(
   'value' => 'noside',
@@ -97,6 +98,22 @@ $layout_options = array(
  )
 );
 return $layout_options;
+}
+
+function bp_pager_options() {
+	$pager_options = array(
+		'pager' => array(
+			'value' => 'pager',
+			'label' => __( 'Use pager', 'pianoblack' ),
+			'img' => 'pager'
+ 		),
+ 'normal_link' => array(
+  'value' => 'normal_link',
+  'label' => __( 'Use normal link', 'pianoblack' ),
+  'img' => 'normal_link'
+ )
+);
+return $pager_options;
 }
 
 // Do options page
@@ -139,15 +156,7 @@ function theme_options_do_page() {
   <?php endif; ?>
  <?php endif; ?>
  
- <script type="text/javascript">
-  jQuery(document).ready(function($){
-   $('#my_theme_option').cookieTab({
-    tabMenuElm: '#theme_tab',
-    tabPanelElm: '#tab-panel'
-   });
-  });
- </script>
-
+ 
  <div id="my_theme_option">
 
 <form method="post" action="options.php" enctype="multipart/form-data">
@@ -158,8 +167,8 @@ function theme_options_do_page() {
 ?>
 <?php settings_fields( 'black_piano_options' ); ?>
 
-  <!-- #tab-content1 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  -->
-  <div id="tab-content1">
+ 
+  <div id="bp-options">
 
    <?php //Tab 1, general settings ?>
    <div class="theme_option_field cf">
@@ -194,7 +203,7 @@ function theme_options_do_page() {
      <p><?php _e('If this field is blank, the block won\'t show, even if you chose to show it above', 'black-piano');  ?></p>
      <div style="margin:0 0 5px 0;">
       <label style="display:inline-block; min-width:140px;"><?php _e('Title of information area', 'black-piano');  ?></label>
-      <input id="black_piano_options[information_title]" class="regular-text" type="text" name="black_piano_options[information_title]" value="<?php esc_attr( $options['information_title'] ); ?>" />
+      <input id="black_piano_options[information_title]" class="regular-text" type="text" name="black_piano_options[information_title]" value="<?php echo esc_attr( $options['information_title'] ); ?>" />
      </div>
      <div id="poststuff" style="margin:0 0 15px 0;">
       <div id="postdivrich" class="postarea">
@@ -224,11 +233,42 @@ function theme_options_do_page() {
            }
      ?>
       <label class="description">
-       <input type="radio" name="black_piano_options[layout]" value="<?php esc_attr( $option['value'] ); ?>" <?php echo $checked; ?> />
+       <input type="radio" name="black_piano_options[layout]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php echo $checked; ?> />
        <img src="<?php  echo get_template_directory_uri(); ?>/admin/<?php echo $option['img']; ?>.gif" alt="" title="" />
        <?php echo $option['label']; ?>
        </label>
        
+     <?php
+          }
+     ?>
+     </fieldset>
+    </div>
+   </div>
+   
+   <?php // Paging, restored ?>
+  <div class="theme_option_field cf">
+    <h3 class="theme_option_headline"><?php _e('Pager type', 'black-piano');  ?></h3>
+    <div class="theme_option_input pager_option">
+     <fieldset class="cf"><legend class="screen-reader-text"><span><?php _e('Pager type', 'black-piano');  ?></span></legend>
+     <?php
+          if ( ! isset( $checked ) )
+          $checked = '';
+          $pager_options = bp_pager_options();
+          foreach ( $pager_options as $option ) {
+          $pager_setting = $options['pager'];
+           if ( '' != $pager_setting ) {
+            if ( $options['pager'] == $option['value'] ) {
+             $checked = "checked=\"checked\"";
+            } else {
+             $checked = '';
+            }
+           }
+     ?>
+      <label class="description">
+       <input type="radio" name="black_piano_options[pager]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php echo $checked; ?> />
+       <img src="<?php echo get_template_directory_uri(); ?>/admin/<?php echo $option['img']; ?>.gif" alt="" title="" />
+       <?php echo $option['label']; ?>
+      </label>
      <?php
           }
      ?>
@@ -245,11 +285,11 @@ function theme_options_do_page() {
      <ul>
       <li>
        <label style="display:inline-block; min-width:140px;"><?php _e('your twitter URL', 'black-piano');  ?></label>
-       <input id="black_piano_options[twitter_url]" class="regular-text" type="text" name="black_piano_options[twitter_url]" value="<?php esc_attr( $options['twitter_url'] ); ?>" />
+       <input id="black_piano_options[twitter_url]" class="regular-text" type="text" name="black_piano_options[twitter_url]" value="<?php echo esc_attr( $options['twitter_url'] ); ?>" />
       </li>
       <li>
        <label style="display:inline-block; min-width:140px;"><?php _e('your facebook URL', 'black-piano');  ?></label>
-       <input id="black_piano_options[facebook_url]" class="regular-text" type="text" name="black_piano_options[facebook_url]" value="<?php esc_attr( $options['facebook_url'] ); ?>" />
+       <input id="black_piano_options[facebook_url]" class="regular-text" type="text" name="black_piano_options[facebook_url]" value="<?php echo esc_attr( $options['facebook_url'] ); ?>" />
       </li>
      </ul>
     </div>
@@ -261,7 +301,7 @@ function theme_options_do_page() {
     <div class="theme_option_input">
      <p><?php _e('If you want to use google custom search for your wordpress, enter your google custom search ID.<br /><a href="http://www.google.com/cse/" target="_blank">Read more about Google custom search page.</a>', 'black-piano');  ?></p>
      <label style="display:inline-block; margin:0 20px 0 0;"><?php _e('Google custom search ID', 'black-piano');  ?></label>
-     <input id="black_piano_options[custom_search_id]" class="regular-text" type="text" name="black_piano_options[custom_search_id]" value="<?php esc_attr( $options['custom_search_id'] ); ?>" />
+     <input id="black_piano_options[custom_search_id]" class="regular-text" type="text" name="black_piano_options[custom_search_id]" value="<?php echo esc_attr( $options['custom_search_id'] ); ?>" />
     </div>
    </div>
    
@@ -269,7 +309,7 @@ function theme_options_do_page() {
    <div style="clear">
    <p class="submit"><input type="submit" class="button-primary" style="height: 33px; line-height: 15px;" value="<?php _e( 'Save Changes', 'black-piano' ); ?>" /></p>
 	</div>
-  </div><!-- END #tab-content1 -->
+  </div><!-- END #bp-options -->
 
  </form>
 
@@ -359,6 +399,11 @@ function theme_options_validate( $input ) {
   $input['layout'] = null;
  if ( ! array_key_exists( $input['layout'], layout_options() ) )
   $input['layout'] = null;
+
+ if ( ! isset( $input['pager'] ) )
+  $input['pager'] = null;
+ if ( ! array_key_exists( $input['pager'], bp_pager_options() ) )
+  $input['pager'] = null;
 
  // twitter,facebook URL
  $input['twitter_url'] = wp_filter_nohtml_kses( $input['twitter_url'] );

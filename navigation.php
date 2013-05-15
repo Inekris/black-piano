@@ -11,7 +11,7 @@ if (strpos($paginate_base, '?') || ! $wp_rewrite->using_permalinks()) {
 }
 
 echo '<div class="page-navi">'. "\n";
-if (show_posts_nav()) {
+if (bp_show_posts_nav()) {
 echo '<h4>';
 _e("PAGE NAVI","black-piano");
 echo '</h4>' . "\n";

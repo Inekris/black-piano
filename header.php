@@ -1,13 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html <?php language_attributes( 'html' ); ?>>
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
 <title><?php
-global $page, $paged; wp_title( '|', true, 'right' ); bloginfo( 'name' );
-$site_description = get_bloginfo( 'description', 'display' ); if ( $site_description && ( is_home() || is_front_page() ) ) echo " | $site_description";
-if ( $paged >= 2 || $page >= 2 ) echo ' | ' . sprintf( __( 'Page %s', 'black-piano' ), max( $paged, $page ) );
+global $page, $paged, $wp_query; 
+wp_title( '|', true, 'right' ); 
 ?></title>
+ <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 <meta name="description" content="<?php echo bloginfo('description'); ?>" />
 
 
@@ -30,12 +30,14 @@ if ( $paged >= 2 || $page >= 2 ) echo ' | ' . sprintf( __( 'Page %s', 'black-pia
 <?php wp_head(); ?>
 
 <!--<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/scroll.js"></script>-->
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jscript.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/comment.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/rollover.js"></script>
+<?php wp_register_script('jscript',get_template_directory_uri() . '/js/jscript.js',array('jquery')); ?>
+<?php wp_enqueue_script( 'jscript'); ?>
+<!--<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jscript.js"></script>-->
+<script type="text/javascript" src="<?php  echo get_template_directory_uri();  ?>/js/comment.js"></script>
+<script type="text/javascript" src="<?php  echo get_template_directory_uri();  ?>/js/rollover.js"></script>
 
 <!--[if IE 7]>
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/ie7.css" type="text/css" />
+<link rel="stylesheet" href="<?php  echo get_template_directory_uri();  ?>/ie7.css" type="text/css" />
 <![endif]-->
 
 <?php $options = get_black_piano_option(); ?>
@@ -56,7 +58,14 @@ if ( $paged >= 2 || $page >= 2 ) echo ' | ' . sprintf( __( 'Page %s', 'black-pia
 
  <!-- logo -->
  <div id="logo">
-  <?php the_dp_logo(); ?>
+  <?php //the_dp_logo(); ?>
+  <?php
+  	if ( $options['show_site_desc'] ) { 
+  	?><h1 class="logo-text"><a href="<?php echo home_url('/'); ?>"><?php echo get_bloginfo( 'name' ); ?></a></h1><h2 id="site-description"><?php echo get_bloginfo( 'description' ); ?></h2>
+  	<?php }
+  	else { ?>
+  	<h1 class="logo-text no-desc"><a href="<?php echo home_url('/'); ?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
+  	<?php } ?>
  </div>
 
  <div id="header-meta">

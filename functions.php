@@ -1,36 +1,27 @@
 <?php
+require_once ( get_stylesheet_directory() . '/admin/theme-options.php' );
 
-// Changed to load_theme_textdomain 25-04-2013
+add_action( 'after_setup_theme', 'my_theme_setup' );
+add_action( 'admin_print_styles', 'my_admin_CSS' );
 
+/*	Changed to load_theme_textdomain 25-04-2013
+	Added theme support thingies :-)
+*/
 function my_theme_setup() {
  load_theme_textdomain('black-piano', get_template_directory().'/languages' );
  set_post_thumbnail_size( 32, 32, true );
  add_theme_support( 'automatic-feed-links' );
  add_theme_support( 'post-thumbnails' );
- 
  }
-add_action( 'after_setup_theme', 'my_theme_setup' );
 
-//load_textdomain('black-piano', dirname(__FILE__).'/languages/' . get_locale() . '.mo');
-
-// テーマオプション
-require_once ( get_stylesheet_directory() . '/admin/theme-options.php' );
-
-
-//ロゴ画像用関数
-get_template_part('functions/header-logo');
-
-
-// スタイルシートの読み込み
-add_action('admin_print_styles', 'my_admin_CSS');
 
 function my_admin_CSS() {
  wp_enqueue_style('myAdminCSS', get_stylesheet_directory_uri().'/admin/my_admin.css');
 };
 
 
-// ページナビ用
-function show_posts_nav() {
+
+function bp_show_posts_nav() {
 global $wp_query;
 return ($wp_query->max_num_pages > 1);
 };
@@ -259,4 +250,44 @@ function bp_comment_form() {
 				 );
 	return $sets;
 }
+
+function bp_post_image_html( $html, $post_id, $post_image_id ) {
+
+  $html = '<a href="' . get_permalink( $post_id ) . '" title="' . esc_attr( get_post_field( 'post_title', $post_id ) ) . '">' . $html . '</a>';
+  return $html;
+
+}
+add_filter( 'post_thumbnail_html', 'bp_post_image_html', 10, 3 );
+
+/* 
+* Create a formatted title, depending on the type of page
+* @param string $title Default title text for current view
+* @param string $sep Optional seperator
+* @return filtered title
+*/
+function bp_title( $title, $sep ) {
+global $paged, $page, $wp_query;
+
+	if ( is_feed() )
+		return $title;
+
+	// Add the site name.
+	$title .= get_bloginfo( 'name' );
+	// get options
+	 $options = get_black_piano_option(); 
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $options['show_site_desc'] && ( $site_description && ( is_home() || is_front_page() ) ) )
+		$title = "$title $sep $site_description";
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 || $wp_query->max_num_pages > 1 && ( ! is_home() || ! is_front_page() ) ) { 
+		if ( 0 == $paged ) $paged = 1;
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'black-piano' ), max( $paged, $page ) ) . sprintf( __( ' of %s pages', 'black-piano'), $wp_query->max_num_pages ); 
+		}
+
+	return $title;
+}
+add_filter( 'wp_title', 'bp_title', 10, 2);
 ?>

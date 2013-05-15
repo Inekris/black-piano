@@ -19,15 +19,23 @@
    <?php edit_post_link(__('[ EDIT ]', 'black-piano'), '<li class="post_edit">', '</li>' ); ?>
   </ul>
   <?php }; ?>
-  <div class="post-content cf">
-   <?php the_content(__('Read more', 'black-piano')); ?>
-   <?php wp_link_pages(); ?>
+  <div class="post-content">
+  <?php
+  	$permlink=get_permalink();
+  	$bp_id=get_the_id();
+  	$cont=get_the_content(); 
+   if ( ! ( check_for_more( $cont,$permlink,$bp_id ) ||  str_word_count( $cont ) < 55 ) && $options['show_my_more'] )  { 
+		the_excerpt();
+		} 
+	else { 
+		the_content( __( 'Read more', 'black-piano' ) ); 
+		 } ?>   
   </div>
   <?php if ($options['show_category'] or $options['show_tag'] or $options['show_comment']) { ?>
-  <div class="post_meta">
+  <div class="post-meta">
    <ul class="cf">
-    <?php if ($options['show_comment']): ?><li class="post_comment"><?php comments_popup_link(__('Write comment', 'black-piano'), __('1 comment', 'black-piano'), __('% comments', 'black-piano')); ?></li><?php endif; ?>
-    <?php if ($options['show_category']): ?><?php if(has_category()) { ?><li class="post_category"><?php the_category(' . '); ?></li><?php }; ?><?php endif; ?>
+    <?php if ($options['show_comment']): ?><li class="post-comment"><?php comments_popup_link(__('Write comment', 'black-piano'), __('1 comment', 'black-piano'), __('% comments', 'black-piano')); ?></li><?php endif; ?>
+    <?php if ($options['show_category']): ?><?php if(has_category()) { ?><li class="post-category"><?php the_category(' . '); ?></li><?php }; ?><?php endif; ?>
     <?php if ($options['show_tag']): ?><?php the_tags('<li class="post-tag">', ' . ', '</li>'); ?><?php endif; ?>
    </ul>
   </div>
@@ -41,12 +49,25 @@
  </div>
 
  <?php endif; ?>
-
+<?php if ($options['pager'] == 'pager') { ?>
+ <?php include('navigation.php'); ?>
+ <?php } else { ?>
  <div id="prev-next-post" class="cf">
-  <p class="next-post"><?php next_posts_link( __( 'Older posts', 'black-piano' ) ); ?></p>
-  <p class="prev-post"><?php previous_posts_link( __( 'Newer posts', 'black-piano' ) ); ?></p>
- </div>
- <?php ; ?>
+  <p class="next-post">
+  <?php next_posts_link( __( 'Older posts', 'black-piano' ) ); ?></p>
+  <?php if ( $options['show_return_top'] ) { ?>
+  <?php if ( get_next_posts_link() ) { ?>
+	 <p class="return-top">
+	 <?php } 
+	  else {
+	 	?> <p class="return-top-empty">
+	 <?php };?><a href="#header-menu"><?php _e('Return top','black-piano'); ?></a></p>
+ <?php }; ?><p class="prev-post">
+  <?php previous_posts_link( __( 'Newer posts', 'black-piano' ) ); ?></p>
+   
+ 
+ </div><!--id="prev-next-post"-->
+ <?php } ?>
 
 </div><!-- END #left-col -->
 
